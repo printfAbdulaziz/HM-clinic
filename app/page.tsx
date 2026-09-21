@@ -16,7 +16,7 @@ const concerns = [
 const treatments = [["Lip enhancement","تعزيز الشفاه","/images/face-consultation.png"],["Skin brightening","إشراقة البشرة","/images/skin-consultation.png"],["Hair restoration","استعادة الشعر","/images/hair-consultation.png"],["Carbon laser","ليزر الكربون","/images/laser-treatment.png"]];
 export default function Home() {
  const [lang,setLang]=useState<Lang>("en"), [menu,setMenu]=useState(false), [booking,setBooking]=useState(false); const t=copy[lang];
- useEffect(()=>{document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr"},[lang]);
+ useEffect(()=>{document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.querySelectorAll<HTMLImageElement>('img[src^="/images/"]').forEach(image=>{image.src=`/HM-clinic${image.getAttribute("src")}`})},[lang]);
  return <main className={lang==="ar"?"arabic":""}>
  <header className="header"><a className="logo" href="#top">HM <span>FACIAL AESTHETICS</span></a><nav>{t.nav.map((n,i)=><a key={n} href={["#treatments","#concerns","#specialists","#results","#about"][i]}>{n}</a>)}</nav><div className="nav-actions"><button className="lang" onClick={()=>setLang(lang==="en"?"ar":"en")}>{lang==="en"?"AR":"EN"}</button><button className="button small" onClick={()=>setBooking(true)}>{t.book}</button><button className="menu-btn" aria-label="Open menu" onClick={()=>setMenu(!menu)}>☰</button></div></header>
  {menu&&<div className="mobile-menu"><button onClick={()=>setMenu(false)}>× {t.close}</button>{t.nav.map(n=><a key={n} href="#concerns" onClick={()=>setMenu(false)}>{n}</a>)}<a className="button" href="#book">{t.book}</a></div>}
