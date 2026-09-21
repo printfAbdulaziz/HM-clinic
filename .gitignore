@@ -13,3 +13,6 @@ awesome-design-md/
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Local Chrome visual-check captures
+chrome-*.png
