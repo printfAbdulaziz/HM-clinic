@@ -1,6 +1,7 @@
 # Dependencies and generated output
 node_modules/
 .next/
+out/
 *.tsbuildinfo
 
 # Local design reference material — intentionally not part of the app repository

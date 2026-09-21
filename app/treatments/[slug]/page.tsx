@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export function generateStaticParams(){return ["lip-enhancement","skin-brightening","hair-restoration","carbon-laser"].map(slug=>({slug}));}
+
 const data: Record<string,{title:string;category:string;description:string;helps:string[]}> = {
   "lip-enhancement": {title:"Lip enhancement",category:"Facial aesthetics",description:"A consultation-led approach to lip shape, balance and hydration. Your clinician will discuss suitability and a plan tailored to your goals.",helps:["Lip definition","Balanced proportions","Personalised aesthetic goals"]},
   "skin-brightening": {title:"Skin brightening",category:"Skin & dermatology",description:"A considered treatment plan designed to support a brighter, more even-looking complexion. Suitability is assessed in consultation.",helps:["Appearance of uneven tone","Visible pigmentation","Skin texture and radiance"]},
